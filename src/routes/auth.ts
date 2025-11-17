@@ -37,6 +37,9 @@ router.post("/login", limiter.loginLimiter, validateUserLogin, async (req: Reque
   try {
     const { email, password } = req.body;
 
+    console.log("Login attempt for email:", email);
+    console.log("Login attempt for password:", password);
+
     const result = await UserService.login(email, password);
 
     res.status(200).json({
